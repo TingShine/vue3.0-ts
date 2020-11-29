@@ -9,7 +9,13 @@ export interface RequestOptions {
     // 格式化请求参数时间
     formateDate?: boolean;
     // 接口地址，不填使用默认apiUrl
-    apuUrl?: string;
+    apiUrl?: string;
+    //  是否处理请求结果
+    isTransformRequestResult?: boolean;
+    // 错误消息提示类型
+    errorMessageMode?: 'none' | 'modal';
+    // 是否加入url
+    joinPrefix?: boolean;
 }
 
 export interface CreateAxiosOptions extends AxiosRequestConfig {
@@ -22,7 +28,7 @@ export interface Result<T = any> {
     code: number;
     type: 'success' | 'error' | 'warning';
     message: string;
-    result: T;
+    data: T;
 }
 
 // multipart/form-data：上传文件
